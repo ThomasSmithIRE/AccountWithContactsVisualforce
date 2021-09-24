@@ -1,0 +1,18 @@
+<apex:page controller="AccountWithContacts" tabStyle="Account">
+    <apex:form>
+        <apex:pageBlock id="pb1" title="Display Related Contacts">
+            <apex:pageBlockButtons>
+                <apex:commandButton value="Show Contacts" action="{!refresh}" rerender="pb2"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection>
+                <apex:inputField label="Account" value="{!sob.AccountId}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+
+        <apex:pageBlock id="pb2">
+            <apex:pageBlockTable id="pbt" value="{!contacts}" var="c">
+                <apex:column value="{!c.con.Name}"/>
+            </apex:pageBlockTable>
+        </apex:pageblock>
+    </apex:form>
+</apex:page>
